@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quinceañera - Elieth Monserrath</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Alex+Brush&family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        /* ============================================ */
+        /* VARIABLES CSS (Design System)                */
+        /* ============================================ */
+        :root {
+            --bg-light: #E8E0F0;
+            --purple-dark: #4A3B5A;
+            --purple-medium: #9B8AAF;
+            --purple-text: #7B5EA7;
+            --gold: #D4AF37;
+            --brown-text: #5C3A21;
+            --white: #FFFFFF;
+
+            --font-script: 'Great Vibes', cursive;
+            --font-script-alt: 'Alex Brush', cursive;
+            --font-serif: 'Playfair Display', serif;
+            --font-sans: 'Montserrat', sans-serif;
+        }
+
+        /* ============================================ */
+        /* RESET Y ESTILOS GLOBALES                     */
+        /* ============================================ */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font-serif);
+            background-color: var(--bg-light);
+            color: var(--brown-text);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        img { max-width: 100%; height: auto; display: block; }
+
+        section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 60px 20px;
+            position: relative;
+        }
+
+        .contenido-seccion {
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .btn-musica {
+            position: fixed; top: 18px; right: 18px; z-index: 100;
+            width: 46px; height: 46px; border-radius: 50%;
+            background: rgba(45, 27, 78, 0.55); border: 1.5px solid var(--gold);
+            color: var(--gold); font-size: 1.3rem; cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            backdrop-filter: blur(4px); transition: transform 0.3s ease, background 0.3s ease;
+        }
+        .btn-musica:hover { transform: scale(1.08); background: rgba(45, 27, 78, 0.8); }
+        .btn-musica.sonando { animation: pulsoMusica 1.6s ease-in-out infinite; }
+        @keyframes pulsoMusica {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.5); }
+            50% { box-shadow: 0 0 0 8px rgba(212, 175, 55, 0); }
+        }
+
+        /* ============================================ */
+        /* SECCIÓN 1: INICIO                            */
+        /* ============================================ */
+        .seccion-inicio {
+            background: linear-gradient(135deg, #2d1b4e 0%, #4a2d6b 50%, #2d1b4e 100%);
+            overflow: hidden;
+        }
+
+        .fondo-linternas {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            overflow: hidden; z-index: 1;
+        }
+
+        .linterna {
+            position: absolute;
+            width: 34px; height: auto;
+            opacity: 0.85;
+            animation: flotar 8s ease-in-out infinite;
+            filter: drop-shadow(0 0 14px rgba(255, 215, 0, 0.55));
+        }
+        .linterna img { width: 100%; height: auto; display: block; }
+
+        @keyframes flotar {
+            0%, 100% { transform: translateY(0) translateX(0); opacity: 0.85; }
+            50% { transform: translateY(-100px) translateX(20px); opacity: 0.4; }
+        }
+
+        .overlay-inicio {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(ellipse at center, transparent 0%, rgba(45, 27, 78, 0.4) 100%);
+            z-index: 2;
+        }
+
+        .contenido-inicio {
+            position: relative; z-index: 3; text-align: center; color: var(--white);
+            width: 100%;
+            max-width: 800px;
+            padding: 20px;
+        }
+
+        .frase-invita {
+            font-family: var(--font-serif); font-size: 1.25rem; letter-spacing: 4px;
+            font-weight: 600;
+            text-transform: uppercase; color: #FFE9A8;
+            text-shadow: 0 0 12px rgba(255, 233, 168, 0.85), 0 0 24px rgba(212, 175, 55, 0.6), 0 2px 4px rgba(0,0,0,0.6);
+            margin-bottom: 10px;
+            animation: fadeInDown 1s ease;
+        }
+
+        .titulo-inicio {
+            font-family: var(--font-script-alt); font-size: 4.2rem; color: var(--white);
+            margin-bottom: 30px; text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+            animation: fadeInUp 1s ease 0.3s both;
+        }
+
+        .titulo-inicio span { color: var(--gold); }
+
+        /* SOBRE DECORATIVO - OPTIMIZADO */
+        .sobre-container { 
+            margin: 20px auto; 
+            max-width: 640px;
+            width: 100%;
+            position: relative; 
+            animation: fadeIn 1.5s ease 0.6s both, flotarSobre 6s ease-in-out infinite 2s;
+            padding: 10px;
+        }
+
+        .sobre-imagen { 
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+            filter: drop-shadow(0 15px 40px rgba(0, 0, 0, 0.55)) drop-shadow(0 0 35px rgba(212, 175, 55, 0.35));
+            transition: transform 0.5s ease, filter 0.5s ease;
+            animation: brilloSobre 4s ease-in-out infinite;
+        }
+
+        .sobre-imagen:hover {
+            transform: scale(1.03) translateY(-6px);
+            filter: drop-shadow(0 20px 50px rgba(0, 0, 0, 0.65)) drop-shadow(0 0 50px rgba(212, 175, 55, 0.55));
+        }
+
+        @keyframes flotarSobre {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes brilloSobre {
+            0%, 100% { filter: drop-shadow(0 15px 40px rgba(0, 0, 0, 0.55)) drop-shadow(0 0 35px rgba(212, 175, 55, 0.35)); }
+            50% { filter: drop-shadow(0 15px 40px rgba(0, 0, 0, 0.55)) drop-shadow(0 0 50px rgba(212, 175, 55, 0.55)); }
+        }
+
+        .sobre-fallback {
+            display: none;
+            width: 100%;
+            max-width: 500px;
+            height: 320px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, #6b4c8a 0%, #4a2d6b 100%);
+            border: 3px solid var(--gold);
+            border-radius: 10px;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+        }
+
+        .sobre-fallback::before, .sobre-fallback::after {
+            content: ''; position: absolute; width: 60%; height: 2px; background: var(--gold);
+        }
+        .sobre-fallback::before { top: 50%; transform: rotate(15deg); }
+        .sobre-fallback::after { top: 50%; transform: rotate(-15deg); }
+
+        .numero-15 {
+            font-family: var(--font-script); font-size: 5rem; color: var(--gold);
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5); z-index: 1;
+        }
+
+        .btn-abrir {
+            display: inline-block; margin-top: 30px; max-width: 280px; width: 80%;
+            background: transparent; border: none; padding: 0; cursor: pointer;
+            transition: transform 0.3s ease, filter 0.3s ease;
+            animation: fadeInUp 1s ease 1s both;
+        }
+        .btn-abrir img { width: 100%; height: auto; display: block; filter: drop-shadow(0 8px 18px rgba(0,0,0,0.5)); }
+
+        .btn-abrir:hover {
+            transform: translateY(-3px) scale(1.03);
+        }
+
+        /* ============================================ */
+        /* SECCIÓN 2: INVITACIÓN                        */
+        /* ============================================ */
+        .seccion-invitacion { background: linear-gradient(180deg, #FBE1EF 0%, #F6BEDB 45%, #EE9CC8 100%); flex-direction: column; padding: 80px 20px; position: relative; overflow: hidden; }
+        .contenido-seccion { position: relative; z-index: 2; }
+        .luces-flotantes { position: absolute; inset: 0; overflow: hidden; pointer-events: none; z-index: 1; }
+        .luz-flotante {
+            position: absolute; border-radius: 50%;
+            background: radial-gradient(circle, #FFF6D8 0%, #F7CE7A 55%, transparent 78%);
+            box-shadow: 0 0 12px 4px rgba(247, 206, 122, 0.55);
+            opacity: 0;
+            animation: subirLuz linear infinite;
+        }
+        @keyframes subirLuz {
+            0% { transform: translate(0, 0); opacity: 0; }
+            12% { opacity: .95; }
+            88% { opacity: .6; }
+            100% { transform: translate(var(--drift, 15px), -520px); opacity: 0; }
+        }
+        .invitacion-formal { margin-bottom: 60px; }
+        .marco-ovalado-container { position: relative; max-width: 340px; margin: 0 auto 30px; }
+        .marco-imagen { width: 100%; position: relative; z-index: 2; filter: drop-shadow(0 12px 30px rgba(74,59,90,0.35)); }
+
+        .foto-quinceanera {
+            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+            width: 60%; height: 60%; z-index: 1;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .foto-placeholder { font-size: 4rem; opacity: 0.3; }
+
+        .texto-padres-nombres { font-family: var(--font-serif); font-size: 1.1rem; font-weight: 600; letter-spacing: 0.5px; color: var(--brown-text); margin-bottom: 8px; }
+        .texto-padres { font-family: var(--font-serif); font-size: 0.85rem; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 6px; color: var(--brown-text); line-height: 1.7; }
+        .titulo-quinceanera { font-family: var(--font-script); font-size: 4rem; color: var(--purple-dark); margin: 10px 0; }
+        .texto-hija { font-family: var(--font-serif); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px; }
+        .nombre-quinceanera { font-family: var(--font-script); font-size: 3.5rem; color: var(--purple-dark); margin-bottom: 30px; }
+
+        .fecha-hora {
+            display: flex; flex-direction: column; align-items: center; gap: 8px;
+            padding: 14px 0; border-top: 1.5px solid var(--purple-medium); border-bottom: 1.5px solid var(--purple-medium);
+            margin-top: 10px;
+        }
+        .fecha-mes { font-family: var(--font-serif); font-size: 1rem; text-transform: uppercase; letter-spacing: 4px; color: var(--brown-text); }
+        .fecha-fila { display: flex; align-items: center; justify-content: center; gap: 18px; }
+        .fecha-col { display: flex; flex-direction: column; align-items: center; }
+        .dia-semana, .hora { font-family: var(--font-serif); font-size: 0.95rem; text-transform: uppercase; letter-spacing: 2px; }
+        .dia-numero { font-family: var(--font-serif); font-size: 2.6rem; color: var(--gold); font-weight: 700; line-height: 1; text-shadow: 0 1px 3px rgba(74,59,90,0.4); }
+        .separador-v { width: 1px; height: 30px; background: var(--purple-medium); }
+
+        .galeria { width: min(360px, 88vw); margin: 40px auto; }
+        .galeria-imagen { width: 100%; height: auto; display: block; filter: drop-shadow(0 14px 30px rgba(74,59,90,0.35)); }
+
+        .mensaje-emocional { font-family: var(--font-script); font-size: 2.5rem; color: var(--purple-dark); margin: 40px 0; line-height: 1.3; }
+
+        .countdown-container { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 40px; }
+        .countdown-item { display: flex; flex-direction: column; align-items: center; min-width: 80px; }
+        .countdown-numero { font-family: var(--font-serif); font-size: 3rem; color: var(--brown-text); font-weight: 700; line-height: 1; }
+        .countdown-numero.segundos { color: var(--purple-dark); }
+        .countdown-label { font-family: var(--font-sans); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; margin-top: 5px; color: var(--brown-text); opacity: 0.7; }
+
+        /* ============================================ */
+        /* SECCIÓN 3: PROGRAMA                          */
+        /* ============================================ */
+        .seccion-programa { background: linear-gradient(180deg, #FBE1EF 0%, #F6BEDB 45%, #EE9CC8 100%); position: relative; overflow: hidden; }
+        .titulo-programa { font-family: var(--font-script); font-size: 4rem; color: var(--purple-text); margin-bottom: 50px; }
+
+        .timeline { position: relative; padding: 20px 0; }
+        .timeline::before {
+            content: ''; position: absolute; left: 50px; top: 0; bottom: 0;
+            width: 2px; background: var(--purple-medium); transform: translateX(-50%);
+        }
+
+        .timeline-item { display: flex; align-items: center; margin-bottom: 50px; position: relative; }
+        .timeline-icono { width: 100px; height: 100px; display: flex; align-items: center; justify-content: center; font-size: 3rem; flex-shrink: 0; }
+        .timeline-info { flex: 1; text-align: left; padding-left: 30px; }
+
+        .evento-hora { font-family: var(--font-serif); font-size: 1.3rem; font-weight: 700; color: var(--brown-text); display: block; margin-bottom: 5px; }
+        .evento-nombre { font-family: var(--font-serif); font-size: 1.2rem; color: var(--purple-text); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 5px; line-height: 1.35; }
+        .evento-lugar { font-family: var(--font-serif); font-size: 1rem; margin-bottom: 10px; }
+        .btn-ubicacion { font-family: var(--font-serif); color: var(--purple-text); text-decoration: underline; font-size: 0.9rem; transition: color 0.3s ease; display: inline-block; line-height: 1.4; }
+        .btn-ubicacion:hover { color: var(--gold); }
+
+        /* ============================================ */
+        /* SECCIÓN 4: RSVP                              */
+        /* ============================================ */
+        .seccion-rsvp { background: linear-gradient(180deg, #FBE1EF 0%, #F6BEDB 45%, #EE9CC8 100%); position: relative; overflow: hidden; }
+        .rsvp-por-favor { font-family: var(--font-script); font-size: 2.5rem; color: var(--purple-dark); margin-bottom: 20px; }
+        .rsvp-letras { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 20px; max-width: 320px; margin: 0 auto 20px; }
+        .rsvp-letras img { width: 100%; height: auto; filter: drop-shadow(0 6px 14px rgba(74,59,90,0.3)); }
+        .rsvp-fallback { font-family: var(--font-serif); font-size: 6rem; color: var(--purple-dark); letter-spacing: 10px; margin: 20px 0; }
+        .rsvp-fecha { font-family: var(--font-script); font-size: 2rem; color: var(--purple-dark); margin-bottom: 30px; }
+
+        .btn-rsvp {
+            display: inline-block; max-width: 320px; width: 85%;
+            background: transparent; border: none; padding: 0; text-decoration: none;
+            transition: transform 0.3s ease; margin-top: 20px;
+        }
+        .btn-rsvp img { width: 100%; height: auto; display: block; filter: drop-shadow(0 8px 18px rgba(74,59,90,0.4)); }
+        .btn-rsvp:hover { transform: translateY(-3px) scale(1.03); }
+        .btn-rsvp-pequeno { max-width: 260px; margin-top: 30px; }
+
+        /* ============================================ */
+        /* SECCIÓN 5: CIERRE                            */
+        /* ============================================ */
+        .seccion-cierre { background: linear-gradient(180deg, #FBE1EF 0%, #F6BEDB 45%, #EE9CC8 100%); flex-direction: column; position: relative; overflow: hidden; }
+        .mensaje-despedida { font-family: var(--font-script); font-size: 4rem; color: var(--purple-text); margin: 30px 0; }
+        .btn-volver { font-family: var(--font-serif); color: var(--brown-text); text-decoration: underline; font-size: 1rem; text-transform: uppercase; letter-spacing: 2px; transition: color 0.3s ease; cursor: pointer; }
+        .btn-volver:hover { color: var(--purple-text); }
+
+        /* ============================================ */
+        /* ANIMACIONES                                  */
+        /* ============================================ */
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeInDown { from { opacity: 0; transform: translateY(-30px); } to { opacity: 1; transform: translateY(0); } }
+
+        .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+        /* ============================================ */
+        /* RESPONSIVE                                   */
+        /* ============================================ */
+        @media (max-width: 768px) {
+            .titulo-inicio, .titulo-quinceanera, .nombre-quinceanera, .titulo-programa, .mensaje-despedida { font-size: 2.5rem; }
+            .rsvp-fallback { font-size: 4rem; }
+            .fecha-hora { gap: 10px; }
+            .dia-numero { font-size: 2rem; }
+            
+            .timeline::before { left: 30px; }
+            .timeline-item { flex-direction: column; align-items: flex-start; padding-left: 60px; }
+            .timeline-icono { position: absolute; left: 0; width: 60px; height: 60px; font-size: 2rem; }
+            .timeline-info { padding-left: 0; text-align: left; }
+            
+            .countdown-numero { font-size: 2rem; }
+            .countdown-item { min-width: 60px; }
+            .galeria { width: 260px; }
+            
+            .sobre-container { max-width: 95%; padding: 0 5px; }
+            .contenido-inicio { max-width: 100%; padding: 10px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Música de fondo -->
+    <audio id="musica-fondo" loop preload="none">
+        <source src="assets/musica-fondo.mp3" type="audio/mpeg">
+    </audio>
+    <button id="btn-musica" class="btn-musica" aria-label="Reproducir música">🔇</button>
+
+    <!-- SECCIÓN 1: INICIO -->
+    <section id="inicio" class="seccion-inicio">
+        <div class="fondo-linternas" id="fondo-linternas"></div>
+        <div class="overlay-inicio"></div>
+
+        <div class="contenido-inicio">
+            <p class="frase-invita">Estás invitado(a)</p>
+            <h1 class="titulo-inicio">A mis <span id="nombre-quinceanera">15 años</span></h1>
+
+            <div class="sobre-container">
+                <img src="assets/sobre-decorativo.png" alt="Sobre decorativo" class="sobre-imagen" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div class="sobre-fallback">
+                    <span class="numero-15">15</span>
+                </div>
+            </div>
+
+            <button class="btn-abrir" id="btn-abrir">
+                <img src="assets/btn-abrir-invitacion.png" alt="Abrir Invitación" onerror="this.parentElement.textContent='Abrir Invitación'">
+            </button>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 2: INVITACIÓN FORMAL + COUNTDOWN -->
+    <section id="invitacion" class="seccion-invitacion">
+        <div class="fondo-linternas" id="fondo-linternas-2"></div>
+        <div class="luces-flotantes" id="luces-invitacion"></div>
+        <div class="contenido-seccion">
+            <div class="invitacion-formal fade-in">
+                <div class="marco-ovalado-container">
+                    <img src="assets/marco-ovalado.png" alt="Marco decorativo con foto de la quinceañera" class="marco-imagen" onerror="this.style.display='none'">
+                </div>
+
+                <p class="texto-padres-nombres" id="nombres-padres">María del Carmen Molina &amp; Ricardo Montalvo</p>
+                <p class="texto-padres">tienen el honor de invitarte a celebrar</p>
+                <p class="texto-padres">los 15 años de su hija:</p>
+                <h3 class="nombre-quinceanera" id="nombre-completo">Elieth Monserrath Montalvo Molina</h3>
+
+                <div class="fecha-hora">
+                    <span class="fecha-mes" id="mes">Septiembre</span>
+                    <div class="fecha-fila">
+                        <div class="fecha-col"><span class="dia-semana" id="dia-semana">Sábado</span></div>
+                        <div class="separador-v"></div>
+                        <div class="fecha-col"><span class="dia-numero" id="dia-numero">26</span></div>
+                        <div class="separador-v"></div>
+                        <div class="fecha-col"><span class="hora" id="hora">A las 7:00 PM</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="galeria fade-in">
+                <img src="assets/galeria-doble.png" alt="Fotos de la quinceañera" class="galeria-imagen" onerror="this.style.display='none'">
+            </div>
+
+            <p class="mensaje-emocional fade-in">¡No puedo esperar<br>para celebrar contigo!</p>
+
+            <div class="countdown-container fade-in">
+                <div class="countdown-item">
+                    <span class="countdown-numero" id="dias">00</span>
+                    <span class="countdown-label">Días</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-numero" id="horas">00</span>
+                    <span class="countdown-label">Horas</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-numero" id="minutos">00</span>
+                    <span class="countdown-label">Minutos</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-numero segundos" id="segundos">00</span>
+                    <span class="countdown-label">Segundos</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 3: PROGRAMA -->
+    <section id="programa" class="seccion-programa">
+        <div class="fondo-linternas" id="fondo-linternas-3"></div>
+        <div class="contenido-seccion">
+            <h2 class="titulo-programa fade-in">Programa</h2>
+            <div class="timeline">
+                <div class="timeline-item fade-in">
+                    <div class="timeline-icono"><img src="assets/icono-misa.png" alt="Misa" onerror="this.parentElement.innerHTML='⛪'"></div>
+                    <div class="timeline-info">
+                        <span class="evento-hora">7:00 PM</span>
+                        <h4 class="evento-nombre">Comienzo<br>de Ceremonia</h4>
+                        <a href="#" class="btn-ubicacion" id="link-ubicacion">Ver Ubicación</a>
+                    </div>
+                </div>
+                <div class="timeline-item fade-in">
+                    <div class="timeline-icono"><img src="assets/icono-entrada.png" alt="Entrada" onerror="this.parentElement.innerHTML='👗'"></div>
+                    <div class="timeline-info">
+                        <span class="evento-hora">9:45 PM</span>
+                        <h4 class="evento-nombre">Entrada</h4>
+                    </div>
+                </div>
+                <div class="timeline-item fade-in">
+                    <div class="timeline-icono"><img src="assets/icono-val.png" alt="Vals" onerror="this.parentElement.innerHTML='💃'"></div>
+                    <div class="timeline-info">
+                        <span class="evento-hora">10:00 PM</span>
+                        <h4 class="evento-nombre">Vals</h4>
+                    </div>
+                </div>
+                <div class="timeline-item fade-in">
+                    <div class="timeline-icono"><img src="assets/icono-cena.png" alt="Cena" onerror="this.parentElement.innerHTML='🍽️'"></div>
+                    <div class="timeline-info">
+                        <span class="evento-hora">11:00 PM</span>
+                        <h4 class="evento-nombre">Cena</h4>
+                    </div>
+                </div>
+                <div class="timeline-item fade-in">
+                    <div class="timeline-icono"><img src="assets/icono-sorpresa.png" alt="Sorpresa" onerror="this.parentElement.innerHTML='🎁'"></div>
+                    <div class="timeline-info">
+                        <span class="evento-hora">12:00 AM</span>
+                        <h4 class="evento-nombre">Sorpresa</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 4: RSVP -->
+    <section id="rsvp" class="seccion-rsvp">
+        <div class="fondo-linternas" id="fondo-linternas-4"></div>
+        <div class="contenido-seccion">
+            <p class="rsvp-por-favor fade-in">Por favor</p>
+            <div class="rsvp-letras fade-in">
+                <img src="assets/rsvp-r.png" alt="R" onerror="this.style.display='none'">
+                <img src="assets/rsvp-s.png" alt="S" onerror="this.style.display='none'">
+                <img src="assets/rsvp-v.png" alt="V" onerror="this.style.display='none'">
+                <img src="assets/rsvp-p.png" alt="P" onerror="this.style.display='none'">
+            </div>
+            <p class="rsvp-fecha fade-in">Confirma tu asistencia antes del <span id="fecha-limite-rsvp">23 de Septiembre</span></p>
+            <a href="#" class="btn-rsvp fade-in" id="btn-rsvp" target="_blank">
+                <img src="assets/btn-confirmar-asistencia.png" alt="Confirmar Asistencia" onerror="this.parentElement.textContent='Confirmar Asistencia'">
+            </a>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 5: CIERRE -->
+    <section id="cierre" class="seccion-cierre">
+        <div class="fondo-linternas" id="fondo-linternas-5"></div>
+        <div class="contenido-seccion">
+            <div class="marco-ovalado-container fade-in">
+                <img src="assets/marco-ovalado.png" alt="Marco decorativo con foto de la quinceañera" class="marco-imagen" onerror="this.style.display='none'">
+            </div>
+            <h2 class="mensaje-despedida fade-in">¡Nos vemos pronto!</h2>
+            <a href="#inicio" class="btn-volver fade-in">Volver al Inicio</a>
+            <br>
+            <a href="#" class="btn-rsvp btn-rsvp-pequeno fade-in" id="btn-rsvp-2" target="_blank">
+                <img src="assets/btn-confirmar-asistencia.png" alt="Confirmar Asistencia" onerror="this.parentElement.textContent='Confirmar Asistencia'">
+            </a>
+        </div>
+    </section>
+
+    <script>
+        /* ============================================ */
+        /* CONFIGURACIÓN - DATOS REALES                 */
+        /* ============================================ */
+        const config = {
+            quinceaneraName: 'Elieth Monserrath',
+            quinceaneraFullName: 'Elieth Monserrath Montalvo Molina',
+            parentsNames: 'María del Carmen Molina & Ricardo Montalvo',
+            eventDate: '2026-09-26T19:00:00',
+            eventDay: 'Sábado',
+            eventDayNumber: '26',
+            eventMonth: 'Septiembre',
+            eventTime: '7:00 PM',
+            rsvpDeadline: '23 de Septiembre',
+            rsvpLink: 'https://wa.me/NUMERO_DE_TELEFONO',
+            locationAddress: 'Av. Virgen de Lujan, Calle 5 Sur',
+            locationLink: 'https://maps.google.com/?q=Av.+Virgen+de+Lujan+Calle+5+Sur'
+        };
+
+        function crearLucesInvitacion() {
+            const contenedor = document.getElementById('luces-invitacion');
+            if (!contenedor) return;
+            const cantidad = 16;
+            for (let i = 0; i < cantidad; i++) {
+                const luz = document.createElement('div');
+                luz.classList.add('luz-flotante');
+                const size = 6 + Math.random() * 8;
+                luz.style.width = `${size}px`;
+                luz.style.height = `${size}px`;
+                luz.style.left = `${Math.random() * 100}%`;
+                luz.style.top = `${20 + Math.random() * 75}%`;
+                luz.style.setProperty('--drift', `${(Math.random() * 40) - 20}px`);
+                luz.style.animationDuration = `${5 + Math.random() * 5}s`;
+                luz.style.animationDelay = `${Math.random() * 6}s`;
+                contenedor.appendChild(luz);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            cargarDatos();
+            crearLinternas('fondo-linternas', 14);
+            crearLinternas('fondo-linternas-2', 10);
+            crearLinternas('fondo-linternas-3', 8);
+            crearLinternas('fondo-linternas-4', 8);
+            crearLinternas('fondo-linternas-5', 8);
+            crearLucesInvitacion();
+            iniciarCountdown();
+            iniciarScrollSuave();
+            iniciarFadeIn();
+        });
+
+        function cargarDatos() {
+            document.getElementById('link-ubicacion').href = config.locationLink;
+            document.getElementById('link-ubicacion').innerHTML = config.locationAddress.split(',').map(s => s.trim()).join('<br>');
+            document.getElementById('btn-rsvp').href = config.rsvpLink;
+            document.getElementById('btn-rsvp-2').href = config.rsvpLink;
+        }
+
+        function crearLinternas(containerId = 'fondo-linternas', cantidad = 14) {
+            const contenedor = document.getElementById(containerId);
+            if (!contenedor) return;
+            for (let i = 0; i < cantidad; i++) {
+                const linterna = document.createElement('div');
+                linterna.classList.add('linterna');
+                linterna.style.left = `${Math.random() * 100}%`;
+                linterna.style.top = `${Math.random() * 100}%`;
+                linterna.style.animationDelay = `${Math.random() * 8}s`;
+                linterna.style.animationDuration = `${6 + Math.random() * 6}s`;
+                const size = 22 + Math.random() * 26;
+                linterna.style.width = `${size}px`;
+                linterna.innerHTML = '<img src="assets/farol-decorativo.png" alt="">';
+                contenedor.appendChild(linterna);
+            }
+        }
+
+        function iniciarCountdown() {
+            const fechaEvento = new Date(config.eventDate).getTime();
+            function actualizar() {
+                const ahora = new Date().getTime();
+                const distancia = fechaEvento - ahora;
+                if (distancia < 0) {
+                    ['dias', 'horas', 'minutos', 'segundos'].forEach(id => document.getElementById(id).textContent = '00');
+                    return;
+                }
+                const dias = Math.floor(distancia / (1000 * 60 * 60 * 24));
+                const horas = Math.floor((distancia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutos = Math.floor((distancia % (1000 * 60 * 60)) / (1000 * 60));
+                const segundos = Math.floor((distancia % (1000 * 60)) / 1000);
+
+                document.getElementById('dias').textContent = String(dias).padStart(2, '0');
+                document.getElementById('horas').textContent = String(horas).padStart(2, '0');
+                document.getElementById('minutos').textContent = String(minutos).padStart(2, '0');
+                document.getElementById('segundos').textContent = String(segundos).padStart(2, '0');
+            }
+            actualizar();
+            setInterval(actualizar, 1000);
+        }
+
+        function iniciarScrollSuave() {
+            const btnAbrir = document.getElementById('btn-abrir');
+            const musica = document.getElementById('musica-fondo');
+            const btnMusica = document.getElementById('btn-musica');
+
+            function actualizarBotonMusica(sonando) {
+                btnMusica.textContent = sonando ? '🔊' : '🔇';
+                btnMusica.classList.toggle('sonando', sonando);
+                btnMusica.setAttribute('aria-label', sonando ? 'Pausar música' : 'Reproducir música');
+            }
+
+            function activarMusica() {
+                musica.muted = false;
+                musica.volume = 0.5;
+                musica.play().then(() => actualizarBotonMusica(true)).catch(() => {});
+            }
+
+            // Intento de autoplay silencioso apenas carga la página (permitido por los navegadores)
+            musica.muted = true;
+            musica.play().catch(() => {});
+            actualizarBotonMusica(true); // el botón siempre muestra "encendido" por defecto
+
+            // En el primer toque/click en cualquier parte de la tarjeta, se activa el sonido real
+            const activarConPrimerToque = () => activarMusica();
+            document.addEventListener('click', activarConPrimerToque, { once: true });
+            document.addEventListener('touchstart', activarConPrimerToque, { once: true });
+
+            // Botón manual: el usuario puede apagarla o volver a encenderla cuando quiera
+            btnMusica.addEventListener('click', () => {
+                if (musica.paused || musica.muted) {
+                    activarMusica();
+                } else {
+                    musica.pause();
+                    actualizarBotonMusica(false);
+                }
+            });
+
+            if (btnAbrir) {
+                btnAbrir.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    document.getElementById('invitacion').scrollIntoView({ behavior: 'smooth' });
+                });
+            }
+
+            const btnVolver = document.querySelector('.btn-volver');
+            if (btnVolver) {
+                btnVolver.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+        }
+
+        function iniciarFadeIn() {
+            const elementos = document.querySelectorAll('.fade-in');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) entry.target.classList.add('visible');
+                });
+            }, { threshold: 0.1 });
+            elementos.forEach(el => observer.observe(el));
+        }
+    </script>
+</body>
+</html>
